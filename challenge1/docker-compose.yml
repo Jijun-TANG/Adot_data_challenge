@@ -16,8 +16,8 @@ services:
     restart: on-failure
     environment:
       POSTGRES_DB: postgis
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 1234
       ALLOW_IP_RANGE: 0.0.0.0/0
       # Add extensions you need to be enabled by default in the DB. Default are the five specified below
       POSTGRES_MULTIPLE_EXTENSIONS: postgis,hstore,postgis_topology,postgis_raster,pgrouting
@@ -30,7 +30,7 @@ services:
     image: dpage/pgadmin4
     restart: on-failure
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_EMAIL: admin
       PGADMIN_DEFAULT_PASSWORD: root
     ports:
       - "5050:80"

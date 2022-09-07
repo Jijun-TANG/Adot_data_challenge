@@ -16,6 +16,7 @@ class Item(BaseModel):
 def get_neareast_parcel(lat: int, lon: int):
     pass
 
+
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
