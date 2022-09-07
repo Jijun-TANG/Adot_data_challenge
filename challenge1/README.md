@@ -13,7 +13,7 @@ Right click on `Servers`, choose `Register` -> `Server` and pick a database name
 
 4. paste the ip address found in the connection tab:
 
-5. ![](images_of_introduction/Pasted%20image%2020220907130641.png)
+![](images_of_introduction/Pasted%20image%2020220907130641.png)
 
-6. Launch jupyter notebook in the designated directory and click on `kernel` -> `Restart & Run All`
+5. Launch `jupyter notebook` in the designated directory with conda Promp and click on `kernel` -> `Restart & Run All`
 ![](images_of_introduction/Pasted%20image%2020220907133035.png)
