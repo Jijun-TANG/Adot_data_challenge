@@ -113,7 +113,7 @@ async def delete_parcel(Id: str):
     return Response(content="{Id} parcel is successfully deleted", status_code=status.HTTP_202_ACCEPTED)
 
 
-@app.patch("/parcelle/{ParcelToUpdate.Id}", response_model=UpdateParcelle)
+@app.patch("/parcelle/{ParcelToUpdate.Id}")
 async def update_item(ParcelToUpdate: UpdateParcelle):
     cursor = connection.cursor()
     sql_select_query = f"select id from cadastre c where c.id='{ParcelToUpdate.Id}';"
@@ -131,7 +131,7 @@ async def update_item(ParcelToUpdate: UpdateParcelle):
         """
         Only need to update commune info
         """
-        postgres_update_query = f"UPDATE cadastre c SET c.Commune='{ParcelToUpdate.Commune}' WHERE c.id ='{ParcelToUpdate.Id}';"
+        postgres_update_query = f"UPDATE cadastre SET Commune='{ParcelToUpdate.Commune}' WHERE id ='{ParcelToUpdate.Id}';"
     if ParcelToUpdate.Geometry != None:
         """
         Geometry info need to be updated
@@ -146,9 +146,10 @@ async def update_item(ParcelToUpdate: UpdateParcelle):
         chains = chains[:-1]
         geo_str = ParcelToUpdate.Geometry.type.upper()+'('+chains+')'
         if ParcelToUpdate.Commune == None:
-            postgres_update_query = f"UPDATE cadastre c SET c.Geometry='{geo_str}' WHERE c.id ='{ParcelToUpdate.Id}';"
+            postgres_update_query = f"UPDATE cadastre SET Geometry='{geo_str}' WHERE Id ='{ParcelToUpdate.Id}';"
         else:
-            postgres_update_query = f"UPDATE cadastre c SET c.Commune='{ParcelToUpdate.Commune}', c.Geometry='{geo_str}' WHERE c.id ='{ParcelToUpdate.Id}';"
+            postgres_update_query = f"UPDATE cadastre SET Commune='{ParcelToUpdate.Commune}', Geometry='{geo_str}' WHERE id ='{ParcelToUpdate.Id}';"
+    cursor.execute(postgres_update_query)
     try:
         cursor.execute(postgres_update_query)
     except:
