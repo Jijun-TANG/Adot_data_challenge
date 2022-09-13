@@ -1,6 +1,8 @@
 # Kafka streaming processing with Spark/Scala on Windows!
 
 ### Kafka version: `2.13-3.0.0`
+### Spark version: `3.3.0`
+### Scala version: `2.12.15`
 
 ### 1st step:
 `wsl`
