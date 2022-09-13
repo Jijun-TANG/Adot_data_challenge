@@ -1,0 +1,15 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /mnt/d/adotmissions/official_files/challenge3/StreamHandler/target/scala-2.12/streamhandler_2.12-0.0.3.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	CalculateData$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /mnt/d/adotmissions/official_files/challenge3/StreamHandler/target/scala-2.12/classes/CalculateData$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	CalculateData.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /mnt/d/adotmissions/official_files/challenge3/StreamHandler/target/scala-2.12/classes/CalculateData.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	StreamHandler$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /mnt/d/adotmissions/official_files/challenge3/StreamHandler/target/scala-2.12/classes/StreamHandler$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	StreamHandler.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /mnt/d/adotmissions/official_files/challenge3/StreamHandler/target/scala-2.12/classes/StreamHandler.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	UserData$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /mnt/d/adotmissions/official_files/challenge3/StreamHandler/target/scala-2.12/classes/UserData$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	UserData.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /mnt/d/adotmissions/official_files/challenge3/StreamHandler/target/scala-2.12/classes/UserData.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
