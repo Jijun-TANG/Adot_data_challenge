@@ -18,9 +18,24 @@ python -m venv .venv
 .venv\scripts\python.exe -m pip install psycopg2
 ```
 
-## To launch the program:
+## To launch the program (we have to keep the pgadmin with postgis running all the time in docker for the previous challenge):
 
 ### 1. Activate the virtual environment: 
 ```
 .venv\Scripts\activate.bat
+```
+
+### 2. Run the program: 
+```
+uvicorn app.main:app --reload
+```
+
+### 3. Send data via postman or swagger UI: 
+```
+http://localhost:8000/docs
+```
+
+### 4. When program is finished, deactivate the virtual environment:
+```
+deactivate
 ```
