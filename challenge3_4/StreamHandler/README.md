@@ -12,7 +12,8 @@
 
 
 ### 3rd step:
-Run `bin/zookeeper-server-start.sh config/zookeeper.properties`
+Run 
+`bin/zookeeper-server-start.sh config/zookeeper.properties`
 
 
 ### 4th step:
