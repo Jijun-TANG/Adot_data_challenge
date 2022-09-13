@@ -1,0 +1,10 @@
+[0m[[0m[31merror[0m] [0m[0m/mnt/d/adotmissions/official_files/challenge34/StreamHandler/src/main/scala/CalculateData.scala:46:36: unclosed string literal[0m
+[0m[[0m[31merror[0m] [0m[0m        val top1domain = spark.sql("SELECT c, supplyTag_domain, COUNT(supplyTag_domain) as cs [0m
+[0m[[0m[31merror[0m] [0m[0m                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/mnt/d/adotmissions/official_files/challenge34/StreamHandler/src/main/scala/CalculateData.scala:51:9: unclosed string literal[0m
+[0m[[0m[31merror[0m] [0m[0m        ")[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/mnt/d/adotmissions/official_files/challenge34/StreamHandler/src/main/scala/CalculateData.scala:87:5: ')' expected but '}' found.[0m
+[0m[[0m[31merror[0m] [0m[0m    }[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0mthree errors found[0m
