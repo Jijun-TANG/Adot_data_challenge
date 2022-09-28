@@ -17,14 +17,16 @@ object CalculateData{
         import spark.implicits._ //help us avoid some warnings?
         
         val table = spark.read.parquet("parquet_path/")
-        
+        """
+        Reference sources:
+
         //https://stackoverflow.com/questions/42003609/spark-count-and-filtered-count-in-same-query
         //https://stackoverflow.com/questions/40449139/how-to-calculate-sum-and-count-in-a-single-groupby
         //https://stackoverflow.com/questions/29988287/renaming-columns-for-pyspark-dataframe-aggregates
 
         //client.groupBy("Categ").agg(sum("Amnt"),count("ID")).show()
         //df.select(count($"id"), count(when($"column1" === 1, true)))
-
+        """
 
         //Question1:
         val affinity = table.groupBy("id").agg((count(when($"supplyTag_tags"===1, true))/count("supplyTag_tags")).alias("Shopping"), 
@@ -49,11 +51,9 @@ object CalculateData{
         val top1domain = spark.sql("WITH cte AS ( SELECT c, supplyTag_domain, ROW_NUMBER() OVER (PARTITION BY c ORDER BY COUNT(supplyTag_domain) DESC) rn FROM DATA GROUP BY c, supplyTag_domain) SELECT c, supplyTag_domain FROM cte WHERE rn = 1")
         top1domain.show()
 
-        //Question4:
 
 
-
-        //Another way of loading the parquet data into stream...
+        //Another way of loading the parquet data into stream:
         
         // val userSchema: StructType = new StructType()
         //     .add("ssp", StringType)

@@ -17,7 +17,7 @@ object StreamHandler{
           .appName("StreamHandler")
           .getOrCreate()
         
-        import spark.implicits._ //help us avoid some warnings?
+        import spark.implicits._  //help us avoid some warnings in the program
         
 
         val ReadSchema: StructType = new StructType()
@@ -25,7 +25,7 @@ object StreamHandler{
             .add("id", StringType)
             .add("deviceOs", StringType)
             .add("c", StringType)
-            .add("supplyType", StringType)                              
+            .add("supplyType", StringType)
             .add("supplyTag",
               new StructType()
                 .add("tags", ArrayType(IntegerType))
@@ -47,6 +47,7 @@ object StreamHandler{
           .select(from_json($"value".cast(StringType), ReadSchema).as("value")) //.cast(StringType)
 
         
+        //Reference sources :https://mungingdata.com/apache-spark/filter-where/ 
 
         val prunedDF = inputDF.select(col("value").getItem("ssp") as "ssp", 
             col("value").getItem("id") as "id",
@@ -63,8 +64,6 @@ object StreamHandler{
             .withColumn("m", date_format(from_unixtime($"ts_no_bid" / 1000), "MM").cast(StringType))
             .withColumn("d", date_format(from_unixtime($"ts_no_bid" / 1000), "dd").cast(StringType))
             .withColumn("h", date_format(from_unixtime($"ts_no_bid" / 1000), "HH").cast(StringType))
-            //https://mungingdata.com/apache-spark/filter-where/ 
-            //HH:mm:ss
             .where("consentMetadata_userConsent = true")
             //.withWatermark(date_format(from_unixtime($"ts_no_bid" / 1000) ,"yyyy-MM-dd HH:mm:ss"), "10 seconds")
 
@@ -78,23 +77,14 @@ object StreamHandler{
         //         .awaitTermination()
         //spark.read.table("myTable").show()
 
-        val query0 = prunedDF.writeStream
+        val query = prunedDF.writeStream
                     .format("parquet") // can be "orc", "json", "csv", etc.
-                    //.trigger(Trigger.ProcessingTime("10 seconds"))
+                    //.trigger(Trigger.ProcessingTime("10 seconds"))  //To be able to process the incoming batch every 10 seconds
                     .option("checkpointLocation", "checkpoint/")
                     .option("path", "parquet_path/")
                     .outputMode("append")
                     .start()
                     .awaitTermination()
-
-        // val query2 = prunedDF.writeStream
-        //         .outputMode("update")
-        //         .format("console")        
-        //         .start()
-        
-        // query2.awaitTermination()
-
-        
 
         spark.stop()        
     }

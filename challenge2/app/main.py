@@ -44,6 +44,8 @@ except (Exception, psycopg2.Error) as error:
 @app.get("/parcelle/{lat}/{lon}")
 async def get_nearest_parcel(lat: float = 48.853578021375, lon: float = 2.348097181051865):
     """
+    References sources:
+    
     https://stackoverflow.com/questions/37827468/find-the-nearest-location-by-latitude-and-longitude-in-postgresql
     https://gis.stackexchange.com/questions/86079/distance-between-polygon-and-point
     Return the information of the neareast parcel given a location point
@@ -157,26 +159,3 @@ async def update_item(ParcelToUpdate: UpdateParcelle):
     connection.commit()
     cursor.close()
     return Response(content="{ParcelToUpdate.Id} parcel is successfully updated", status_code=status.HTTP_202_ACCEPTED)
-"""
-Code examples:
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
-
-
-@app.put("/items/{item_id}")
-def update_item(item_id: int, item: Item):
-    return {"item_name": item.name, "item_id": item_id}
-
-
-@app.patch("/items/{item_id}", response_model=Item)
-async def update_item(item_id: str, item: Item):
-    stored_item_data = items[item_id]
-    stored_item_model = Item(**stored_item_data)
-    update_data = item.dict(exclude_unset=True)
-    updated_item = stored_item_model.copy(update=update_data)
-    items[item_id] = jsonable_encoder(updated_item)
-    return updated_item
-
-"""
