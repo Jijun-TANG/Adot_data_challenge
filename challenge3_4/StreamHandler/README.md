@@ -19,7 +19,7 @@
 (Describe topics):
 `bin/kafka-topics.sh --describe --topic test-topic --bootstrap-server localhost:9092`
 
-##4th step:
+## 4th step:
 
 ### Open another cmd
 
