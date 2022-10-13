@@ -68,7 +68,7 @@ bin/kafka-topics.sh
 
 ### Submit to spark class for challenge3, handle stream:
 
-`spark-submit --class StreamHandler --master local[*] --packages "org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0" target/streamhandler_2.12-0.0.1.jar`
+`spark-submit --class StreamHandler --master local[*] --packages "org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0" target/scala-2.12/streamhandler_2.12-0.0.1.jar`
 
 ### Submit to spark class for challenge4, doing spark sql and generate table:
 
