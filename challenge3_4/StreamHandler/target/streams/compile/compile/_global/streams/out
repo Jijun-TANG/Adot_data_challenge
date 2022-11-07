@@ -1,0 +1,4 @@
+[0m[[0m[33mwarn[0m] [0m[0m/mnt/d/adotmissions/official_files/challenge3_4/StreamHandler/src/main/scala/CalculateData.scala:20:9: a pure expression does nothing in statement position; multiline expressions might require enclosing parentheses[0m
+[0m[[0m[33mwarn[0m] [0m[0m        """[0m
+[0m[[0m[33mwarn[0m] [0m[0m        ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m

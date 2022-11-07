@@ -69,6 +69,12 @@ object StreamHandler{
 
 
 
+        val query0 = prunedDF.writeStream
+        .outputMode("update")
+        .format("console")
+        .start()
+
+        query0.awaitTermination()
         // val query00 = prunedDF.writeStream
         //         .format("parquet")
         //         .option("checkpointLocation", "checkpoint_dir")
